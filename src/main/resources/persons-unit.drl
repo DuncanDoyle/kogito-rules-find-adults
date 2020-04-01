@@ -1,0 +1,17 @@
+package org.acme;
+unit PersonUnit;
+
+
+rule "Person is adult" 
+when
+    $p: /persons[age >= adultAge]
+then
+    modify($p) {
+        setAdult(true);
+    }
+end
+
+query "FindAdults"
+    /persons[isAdult == true]
+end
+
